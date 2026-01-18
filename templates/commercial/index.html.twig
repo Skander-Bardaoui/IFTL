@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tableau de bord Commercial - IFTL{% endblock %}
+
+{% block body %}
+    <div class="navbar commercial">
+        <h1>IFTL - Commercial</h1>
+        <div class="user-info">
+    <span class="user-email">{{ app.user.email }}</span>
+<a href="{{ path('app_logout') }}" class="logout-btn">Déconnexion</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="welcome-card">
+            <h2>Bienvenue dans votre espace Commercial</h2>
+            <p>Gérez vos clients et suivez l'avancement de leurs dossiers</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card commercial">
+                <h3>Créer un compte client</h3>
+                <p>Enregistrer un nouveau client et lui envoyer ses identifiants</p>
+            </div>
+            <div class="feature-card commercial">
+                <h3>Suivi des dossiers</h3>
+                <p>Visualiser l'avancement des dossiers de vos clients</p>
+            </div>
+            <div class="feature-card commercial">
+                <h3>Gestion des procédures</h3>
+                <p>Créer et modifier les séries de fichiers</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

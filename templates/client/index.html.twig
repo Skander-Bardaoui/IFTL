@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tableau de bord Client - IFTL{% endblock %}
+
+{% block body %}
+    <div class="navbar client">
+        <h1>IFTL - Espace Client</h1>
+        <div class="user-info">
+    <span class="user-email">{{ app.user.email }}</span>
+<a href="{{ path('app_logout') }}" class="logout-btn">Déconnexion</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="welcome-card">
+            <h2>Bienvenue dans votre espace personnel</h2>
+            <p>Suivez l'avancement de votre dossier et déposez vos documents</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card client">
+                <h3>Suivi de dossier</h3>
+                <p>Visualisez l'avancement de votre dossier en temps réel</p>
+                <span class="status-badge status-pending">En attente</span>
+            </div>
+            <div class="feature-card client">
+                <h3>Dépôt de fichiers</h3>
+                <p>Téléchargez vos documents requis</p>
+            </div>
+            <div class="feature-card client">
+                <h3>Mes documents</h3>
+                <p>Avis d'imposition, carte grise, carte d'identité</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

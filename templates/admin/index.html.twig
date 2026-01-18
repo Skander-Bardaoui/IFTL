@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tableau de bord Administrateur - IFTL{% endblock %}
+
+{% block body %}
+    <div class="navbar">
+        <h1>IFTL - Administrateur</h1>
+        <div class="user-info">
+     <span class="user-email">{{ app.user.email }}</span>
+<a href="{{ path('app_logout') }}" class="logout-btn">Déconnexion</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="welcome-card">
+            <h2>Bienvenue dans votre espace Administrateur</h2>
+            <p>Gérez l'ensemble du système IFTL depuis cette interface</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Gestion des utilisateurs</h3>
+                <p>Créer et gérer les comptes clients et commerciaux</p>
+            </div>
+            <div class="feature-card">
+                <h3>Gestion des procédures</h3>
+                <p>Créer et modifier les séries de fichiers</p>
+            </div>
+            <div class="feature-card">
+                <h3>Suivi des dossiers</h3>
+                <p>Visualiser l'avancement de tous les dossiers</p>
+            </div>
+            <div class="feature-card">
+                <h3>Gestion des fichiers</h3>
+                <p>Avis d'imposition, cartes grises, identités</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
