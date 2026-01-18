@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFTL - International Freight Transport & Logistic</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #fff;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #666;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #0066cc;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 20px;
+            font-size: 13px;
+            color: #333;
+            align-items: center;
+        }
+
+        .login-btn {
+            background: #0066cc;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .login-btn:hover {
+            background: #0052a3;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 102, 204, 0.7), rgba(0, 102, 204, 0.7)),
+                        url('https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1600') center/cover;
+            color: white;
+            padding: 120px 40px;
+            text-align: left;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .hero h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .hero-text {
+            font-size: 16px;
+            line-height: 1.8;
+            max-width: 800px;
+            margin-bottom: 10px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 40px;
+            background: #f8f9fa;
+        }
+
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: #f0f0f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .btn-blue {
+            background: #0066cc;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background 0.3s;
+        }
+
+        .btn-blue:hover {
+            background: #0052a3;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 40px;
+            background: white;
+        }
+
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .about-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .about-list {
+            text-align: left;
+            max-width: 600px;
+            margin: 40px auto;
+        }
+
+        .about-list li {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .about-list li:before {
+            content: "•";
+            color: #0066cc;
+            font-weight: bold;
+            position: absolute;
+            left: 10px;
+            font-size: 20px;
+        }
+
+        /* Why Choose Us */
+        .why-us {
+            padding: 80px 40px;
+            background: #f8f9fa;
+        }
+
+        .why-us-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .why-us h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 60px;
+            color: #333;
+        }
+
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .why-card {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .why-icon {
+            width: 60px;
+            height: 60px;
+            background: #0066cc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 30px;
+            color: white;
+        }
+
+        .why-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .why-card p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        /* Footer */
+        .footer {
+            background: #f0f0f0;
+            padding: 60px 40px 30px;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            font-size: 14px;
+            color: #666;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-section a:hover {
+            color: #0066cc;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #ddd;
+            color: #999;
+            font-size: 13px;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero h2 {
+                font-size: 24px;
+            }
+
+            .services-grid,
+            .why-us-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="{{ asset('logo.png') }}" alt="IFTL Logo">
+            </div>
+            <nav class="nav-menu">
+                <a href="{{ path('app_home') }}">Accueil</a>
+                <a href="#about">Qui sommes nous</a>
+                <a href="#services">Nos services</a>
+            </nav>
+            <div class="contact-info">
+                <span>📞 01 87 66 32 24</span>
+                <a href="mailto:contact@iftl.fr">CONTACT@IFTL.FR</a>
+                <a href="{{ path('app_login') }}" class="login-btn">Connexion</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>International Freight Transport & Logistic</h1>
+            <h2>Votre partenaire transport et logistique à l'international</h2>
+            <p class="hero-text">Un déménagement à l'étranger ?</p>
+            <p class="hero-text">De la marchandise à exporter à l'international ?</p>
+            <p class="hero-text">Un véhicule à envoyer vers un autre pays ?</p>
+            <p class="hero-text">Vous pouvez compter sur IFTL pour vous accompagner dans vos projets professionnels ou personnels pour tout type d'expéditions à travers le monde.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="services-container">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🚢</div>
+                    <h3>Fret Maritime</h3>
+                    <button class="btn-blue">En savoir plus</button>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚚</div>
+                    <h3>Transport de véhicule</h3>
+                    <button class="btn-blue">En savoir plus</button>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏝️</div>
+                    <h3>Fret Réunion</h3>
+                    <button class="btn-blue">En savoir plus</button>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏖️</div>
+                    <h3>Fret Antilles</h3>
+                    <button class="btn-blue">En savoir plus</button>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌍</div>
+                    <h3>Fret Afrique</h3>
+                    <button class="btn-blue">En savoir plus</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <h2>Qui sommes nous</h2>
+            <p class="about-text">
+                IFTL est une société qui opère dans le monde du transport en tant que commissionnaire.
+            </p>
+            <p class="about-text">
+                La partie législative du Code des transports, fournie dans son article L. 1411-1, une définition légale du commissionnaire de transport:
+            </p>
+            <p class="about-text">
+                « [...] sont considérés comme Commissionnaire de transport, les personnes qui organisent et font exécuter sous leur responsabilité et en leur propre nom, un transport de marchandise selon les modes de leur choix pour le compte d'un commettant »
+            </p>
+            <p class="about-text">
+                L'accès à la profession de commissionnaire de transport est réglementé par le Code des transports. Selon l'article L. 1411-1 du Code des transports, les principales activités nécessitent l'inscription au registre des commissionnaires de transport sont les opérations de:
+            </p>
+            <ul class="about-list">
+                <li>Groupage</li>
+                <li>Affrètement</li>
+                <li>Organisation de transport</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-us">
+        <div class="why-us-container">
+            <h2>Pourquoi expédier avec nous ?</h2>
+            <div class="why-us-grid">
+                <div class="why-card">
+                    <div class="why-icon">📋</div>
+                    <h3>Expertise</h3>
+                    <p>Nous écouterons afin de vous proposer une solution optimisée pour votre projet</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">🤝</div>
+                    <h3>Confiance</h3>
+                    <p>Nous travaillons uniquement avec des agents et partenaires professionnels connus et de confiance pour prendre en charge et mener à bien vos expéditions.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">💬</div>
+                    <h3>Communication</h3>
+                    <p>La communication est un élément clef dans la réussite de tout projet. En vue de la meilleure collaboration possible nous serons et resterons transparent pendant tout le processus d'expédition de vos marchandises.</p>
+                </div>
+                <div class="why-card">
+                    <div class="why-icon">💰</div>
+                    <h3>Compétitivité</h3>
+                    <p>Chaque prestation est négociable avec l'ensemble de nos partenaires dans l'objectif de vous proposer un service de qualité au meilleur prix.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="{{ asset('logo.png') }}" alt="IFTL Logo">
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Contactez nous</h3>
+                <p>contact@iftl.fr</p>
+                <p>01 87 66 32 24</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liens utiles</h3>
+                <a href="#services">Fret Maritime</a>
+                <a href="#services">Transport de véhicule</a>
+                <a href="#services">Fret Réunion</a>
+                <a href="#services">Fret Antilles</a>
+                <a href="#services">Fret Afrique</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 IFTL - International Freight Transport & Logistic. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>
